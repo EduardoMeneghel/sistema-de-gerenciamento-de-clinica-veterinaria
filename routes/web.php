@@ -6,20 +6,32 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/login',[\App\Http\Controllers\LoginContoller::class, 'login']);
+//TCC
 
-Route::get('/contato',[\App\Http\Controllers\ContatoController::class, 'contato']);
+Route::prefix('/login')->group( function (){
+    Route::get('',[\App\Http\Controllers\LoginContoller::class, 'login']);
+})->name('login');
 
-Route::get('/fornecedor',[\App\Http\Controllers\FornecedorContoller::class, 'fornecedor']);
+Route::prefix('/registro')->group( function (){
+    Route::get('',[\App\Http\Controllers\LoginContoller::class, 'registro']);
+})->name('registro');
 
-Route::get('/categoria/{nome}/{id}', function (string $nome, int $id){
-    echo $nome . $id;
-})->where('nome','[A-Za-z]+')->where('id', '[0-9]+');
+Route::prefix('/recuperar-senha')->group( function (){
+    Route::get('',[\App\Http\Controllers\LoginContoller::class, 'recuperarSenha']);
+})->name('recuperar-senha');
 
-Route::prefix('/app')->group(function(){
-    Route::get('/login',[\App\Http\Controllers\LoginContoller::class, 'login']);
+Route::prefix('/documentos')->group(function(){
+    Route::get('/ficha-de-acompanhamento-clinico/{hash}',[\App\Http\Controllers\FichaDeAcompanhamentoClinico::class, 'ficha']);
 });
 
-Route::fallback(function() {
-    echo "Not found - 404";
-});
+Route::fallback(function() {echo "Not found - 404";});
+
+//CURSO
+//
+//Route::get('/categoria/{nome}/{id}', function (string $nome, int $id){
+//    echo $nome . $id;
+//})->where('nome','[A-Za-z]+')->where('id', '[0-9]+');
+//
+//Route::prefix('/app')->group(function(){
+//    Route::get('/login',[\App\Http\Controllers\LoginContoller::class, 'login']);
+//});

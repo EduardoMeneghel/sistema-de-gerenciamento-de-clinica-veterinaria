@@ -10,4 +10,14 @@ class LoginContoller extends Controller
     {
         return view('login');
     }
+
+    public function registro()
+    {
+        return view('registro');
+    }
+
+    public function recuperarSenha()
+    {
+        return view('recuperarSenha');
+    }
 }
