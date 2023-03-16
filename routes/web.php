@@ -8,6 +8,10 @@ Route::get('/', function () {
 
 //TCC
 
+Route::prefix('/admin')->group( function (){
+    Route::get('',[\App\Http\Controllers\AdminController::class, 'admin']);
+})->name('admin');
+
 Route::prefix('/login')->group( function (){
     Route::get('',[\App\Http\Controllers\LoginContoller::class, 'login']);
 })->name('login');
