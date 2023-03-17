@@ -1,18 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html class="bg-slate-900">
 <head>
-    <title>ADMIN</title>
-    <link rel="stylesheet" href="{{asset('css/reset.css')}}">
-    <link rel="stylesheet" href="{{asset('css/login.css')}}">
+    <title>Admin</title>
+    @vite('resources/css/app.css')
 </head>
-<body>
-<div class="card card-white centro" style="width: 500px;height: 450px; margin-top: 50px; text-align: center;">
-    <form action="./validateForgotPassword.php" method="post">
-        <img src="{{asset('user.png')}}" height="200px">
-        <input class="input" placeholder="EMAIL" style="margin-top: 30px;" type="email" name="email" required>
-        <button class="buttom-forgot-password" style="margin-top: 25px;" type="submit">RECUPERAR CONTA</button>
-        <a class="buttom-go-to-back" href="{{ url('login') }}" style="margin-top: 25px;">VOLTAR</a>
-    </form>
-</div>
-</body>
+    <body class="max-w-lg mx-auto mt-32">
+        <div class="mx-auto max-w-sm p-6 bg-white rounded-lg shadow">
+            <img src="{{asset('user.png')}}" height="500px">
+            <input type="text" class="border border-gray-300 text-gray-900 text-sm rounded-lg block w-full pl-10 p-2.5 mt-5" placeholder="Email" required>
+            <button type="button" class="text-white text-sm rounded-lg block bg-gradient-to-r from-cyan-500 to-blue-500 w-full pl-10 p-2.5 mt-5">Recuperar conta</button>
+            <button href="{{ url('recuperar-senha') }}" type="button" class="text-white text-sm rounded-lg block bg-gradient-to-r from-cyan-500 to-blue-500 w-full pl-10 p-2.5 mt-5">Voltar</button>
+        </div>
+    </body>
 </html>

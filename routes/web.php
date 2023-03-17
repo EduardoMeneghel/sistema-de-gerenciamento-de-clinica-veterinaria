@@ -9,8 +9,9 @@ Route::get('/', function () {
 //TCC
 
 Route::prefix('/admin')->group( function (){
-    Route::get('',[\App\Http\Controllers\AdminController::class, 'admin']);
-})->name('admin');
+    Route::get('',[\App\Http\Controllers\AdminController::class, 'admin'])->name('admin');
+    Route::get('/dashboard',[\App\Http\Controllers\AdminController::class, 'dashboard'])->name('dashboard');
+});
 
 Route::prefix('/login')->group( function (){
     Route::get('',[\App\Http\Controllers\LoginContoller::class, 'login']);

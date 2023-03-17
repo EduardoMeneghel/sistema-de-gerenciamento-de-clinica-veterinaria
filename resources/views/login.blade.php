@@ -1,22 +1,17 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>Login</title>
-    <link rel="stylesheet" href="{{asset('css/reset.css')}}">
-    <link rel="stylesheet" href="{{asset('css/login.css')}}">
-</head>
-<body>
-<div class="card card-white centro" style="width: 500px;height: 575px; margin-top: 50px; text-align: center;">
-    <form action="./validateLogin.php" method="post">
-        <img src="{{asset('user.png')}}" height="200px">
-        <input class="input" placeholder="USERNAME" style="margin-top: 30px;" type="text" name="username" required>
-        <input class="input-password" type="password" placeholder="PASSWORD" style="margin-top: 25px;" type="text" name="password" required>
-        <button class="buttom-login" style="margin-top: 25px;" type="submit">LOGAR</button>
-        <a class="buttom-register" href="{{ url('registro') }}" style="margin-top: 25px;">REGISTRAR</a>
-        <a style="margin-top: 15px; color: gray; float: right;" href="{{ url('recuperar-senha') }}">Esuqeci minha conta</a>
-        <input type="checkbox" style="margin-top: 15px; float: left;" type="text" name="checkbox">
-        <label style="color: gray; float: left; margin-top: 13px; margin-left: 5px;">stay connected</label>
-    </form>
-</div>
-</body>
+<html class="bg-slate-900">
+    <head>
+        <title>Admin</title>
+        @vite('resources/css/app.css')
+    </head>
+    <body class="max-w-lg mx-auto mt-32">
+        <div class="mx-auto max-w-sm p-6 bg-white rounded-lg shadow">
+            <img src="{{asset('user.png')}}" height="500px">
+            <input type="text" class="border border-gray-300 text-gray-900 text-sm rounded-lg block w-full pl-10 p-2.5 mt-5" placeholder="Login" required>
+            <input type="password" class="border border-gray-300 text-gray-900 text-sm rounded-lg block w-full pl-10 p-2.5 mt-5" placeholder="Senha" required>
+            <button type="button" class="text-white text-sm rounded-lg block bg-gradient-to-r from-cyan-500 to-blue-500 w-full pl-10 p-2.5 mt-5">Entrar</button>
+            <button type="button" class="text-white text-sm rounded-lg block bg-gradient-to-r from-cyan-500 to-blue-500 w-full pl-10 p-2.5 mt-5">Registrar-se</button>
+            <a href="{{ url('recuperar-senha') }}"><p class="mt-2.5">Esqueci minha conta</p></a>
+        </div>
+    </body>
 </html>
