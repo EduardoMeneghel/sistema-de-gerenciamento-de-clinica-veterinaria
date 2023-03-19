@@ -14,7 +14,7 @@ Route::prefix('/admin')->group( function (){
 
     Route::prefix('/cadastro')->group( function (){
         Route::get('',[\App\Http\Controllers\AdminController::class, 'dashboard'])->name('cadastro-geral');
-        Route::get('/cliente',[\App\Http\Controllers\AdminController::class, 'dashboard'])->name('cadastro-cliente');
+        Route::get('/cliente',[\App\Http\Controllers\CadastroController::class, 'cliente'])->name('cadastro-cliente');
         Route::get('/animal',[\App\Http\Controllers\AdminController::class, 'cliente'])->name('cadastro-animal');
         Route::get('/veterinario',[\App\Http\Controllers\AdminController::class, 'cliente'])->name('cadastro-veterinario');
         Route::get('/exame',[\App\Http\Controllers\AdminController::class, 'cliente'])->name('cadastro-exame');
