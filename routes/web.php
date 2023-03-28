@@ -15,12 +15,12 @@ Route::prefix('/admin')->group( function (){
     Route::prefix('/cadastro')->group( function (){
         Route::get('',[\App\Http\Controllers\AdminController::class, 'dashboard'])->name('cadastro-geral');
         Route::get('/cliente',[\App\Http\Controllers\CadastroController::class, 'cliente'])->name('cadastro-cliente');
-        Route::get('/animal',[\App\Http\Controllers\AdminController::class, 'cliente'])->name('cadastro-animal');
-        Route::get('/veterinario',[\App\Http\Controllers\AdminController::class, 'cliente'])->name('cadastro-veterinario');
-        Route::get('/exame',[\App\Http\Controllers\AdminController::class, 'cliente'])->name('cadastro-exame');
-        Route::get('/vacina',[\App\Http\Controllers\AdminController::class, 'cliente'])->name('cadastro-vacina');
-        Route::get('/tipo-de-atendimento',[\App\Http\Controllers\AdminController::class, 'cliente'])->name('cadastro-tipo-de-atendimento');
-        Route::get('/documentos',[\App\Http\Controllers\AdminController::class, 'cliente'])->name('cadastro-documentos');
+        Route::get('/animal',[\App\Http\Controllers\CadastroController::class, 'animal'])->name('cadastro-animal');
+        Route::get('/veterinario',[\App\Http\Controllers\CadastroController::class, 'veterinario'])->name('cadastro-veterinario');
+        Route::get('/exame',[\App\Http\Controllers\CadastroController::class, 'exame'])->name('cadastro-exame');
+        Route::get('/vacina',[\App\Http\Controllers\CadastroController::class, 'vacina'])->name('cadastro-vacina');
+        Route::get('/tipo-de-atendimento',[\App\Http\Controllers\CadastroController::class, 'tipoDeAtendimento'])->name('cadastro-tipo-de-atendimento');
+        Route::get('/documentos',[\App\Http\Controllers\CadastroController::class, 'documento'])->name('cadastro-documentos');
     });
 });
 
