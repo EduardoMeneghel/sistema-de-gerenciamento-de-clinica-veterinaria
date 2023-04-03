@@ -9,13 +9,23 @@ Route::get('/', function () {
 //TCC
 
 Route::prefix('/admin')->group( function (){
+
+    //Home
     Route::get('',[\App\Http\Controllers\AdminController::class, 'admin'])->name('admin');
+
+    //Dashboard
     Route::get('/dashboard',[\App\Http\Controllers\AdminController::class, 'dashboard'])->name('dashboard');
 
+    //Cadastro
     Route::prefix('/cadastro')->group( function (){
         Route::get('',[\App\Http\Controllers\AdminController::class, 'dashboard'])->name('cadastro-geral');
         Route::get('/cliente',[\App\Http\Controllers\CadastroController::class, 'cliente'])->name('cadastro-cliente');
-        Route::get('/animal',[\App\Http\Controllers\CadastroController::class, 'animal'])->name('cadastro-animal');
+        Route::prefix('/animal')->group( function (){
+            Route::get('',[\App\Http\Controllers\CadastroController::class, 'animal'])->name('cadastro-animal');
+            Route::get('/especie',[\App\Http\Controllers\CadastroController::class, 'especie'])->name('cadastro-especie');
+            Route::get('/raca',[\App\Http\Controllers\CadastroController::class, 'raca'])->name('cadastro-raca');
+            Route::get('/pelo',[\App\Http\Controllers\CadastroController::class, 'pelo'])->name('cadastro-pelo');;
+        });
         Route::get('/veterinario',[\App\Http\Controllers\CadastroController::class, 'veterinario'])->name('cadastro-veterinario');
         Route::get('/exame',[\App\Http\Controllers\CadastroController::class, 'exame'])->name('cadastro-exame');
         Route::get('/vacina',[\App\Http\Controllers\CadastroController::class, 'vacina'])->name('cadastro-vacina');
@@ -41,13 +51,3 @@ Route::prefix('/documentos')->group(function(){
 });
 
 Route::fallback(function() {echo "Not found - 404";});
-
-//CURSO
-//
-//Route::get('/categoria/{nome}/{id}', function (string $nome, int $id){
-//    echo $nome . $id;
-//})->where('nome','[A-Za-z]+')->where('id', '[0-9]+');
-//
-//Route::prefix('/app')->group(function(){
-//    Route::get('/login',[\App\Http\Controllers\LoginContoller::class, 'login']);
-//});
