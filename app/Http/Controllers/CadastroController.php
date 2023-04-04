@@ -59,7 +59,7 @@ class CadastroController extends Controller
     //Veterinário
     public function veterinario()
     {
-        return view('admin/veterinario');
+        return view('admin/cadastro/veterinario/veterinario');
     }
 
 }
