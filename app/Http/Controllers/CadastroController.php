@@ -47,13 +47,13 @@ class CadastroController extends Controller
     //Exame
     public function exame()
     {
-        return view('admin/exame');
+        return view('admin/cadastro/exame/exame');
     }
 
     //Vacina
     public function vacina()
     {
-        return view('admin/vacina');
+        return view('admin/cadastro/vacina/vacina');
     }
 
     //Veterinário
