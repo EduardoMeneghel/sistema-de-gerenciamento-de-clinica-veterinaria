@@ -36,7 +36,7 @@ class CadastroController extends Controller
     //Documento
     public function documento()
     {
-        return view('admin/cadastro/documentos/documentos');
+        return view('admin/cadastro/documento/documento');
     }
 
     public function tipoDeAtendimento()
