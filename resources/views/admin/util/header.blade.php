@@ -34,7 +34,6 @@
                             <a href="{{ url('admin/cadastro/veterinario') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">Veterinário(a)</a>
                             <a href="{{ url('admin/cadastro/exame') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">Exame</a>
                             <a href="{{ url('admin/cadastro/vacina') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">Vacina</a>
-                            <a href="{{ url('admin/cadastro/tipo-de-atendimento') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">Tipo de atendimento</a>
                             <a href="{{ url('admin/cadastro/documentos') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">Documentos</a>
                         </div>
                     </li>
