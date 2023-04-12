@@ -10,6 +10,9 @@
                     <li>
                         <a href="{{ url('') }}" class="flex items-center justify-between w-full py-2 pl-3 pr-4 font-medium text-gray-700 border-b border-gray-100" aria-current="page">Home</a>
                     </li>
+                    <li>
+                        <a href="{{ url('/minha-conta') }}" class="flex items-center justify-between w-full py-2 pl-3 pr-4 font-medium text-gray-700 border-b border-gray-100" aria-current="page">Minha conta</a>
+                    </li>
                 </ul>
             </div>
         </div>

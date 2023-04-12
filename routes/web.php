@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/',[\App\Http\Controllers\HomeController::class, 'index'])->name('index');
-
+Route::get('/minha-conta',[\App\Http\Controllers\MinhaContaController::class, 'minhaConta'])->name('minhaConta');
 //TCC
 
 Route::prefix('/admin')->group( function (){
