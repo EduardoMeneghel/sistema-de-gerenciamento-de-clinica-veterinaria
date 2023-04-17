@@ -6,6 +6,10 @@
 </head>
 <body>
 @include('public.util.header')
+<main class="container mx-auto">
+    @include('public.products.productListing')
+    @include('public.products.productsNews')
+</main>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 @vite('resources/js/chartTest.js')
 @vite('resources/js/chartTest1.js')
