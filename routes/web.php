@@ -13,6 +13,7 @@ Route::prefix('/admin')->group( function (){
 
     //Dashboard
     Route::get('/dashboard',[\App\Http\Controllers\AdminController::class, 'dashboard'])->name('dashboard');
+    Route::get('/configuracao',[\App\Http\Controllers\ConfiguracaoController::class, 'configuracao'])->name('configuracao');
 
     //Cadastro
     Route::prefix('/cadastro')->group( function (){

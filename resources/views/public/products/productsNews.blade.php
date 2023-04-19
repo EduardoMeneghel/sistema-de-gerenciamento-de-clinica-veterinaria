@@ -1,5 +1,5 @@
-<p class="text-4xl text-yellow-200 text-center my-6 font-black text-gray-900 dark:text-white">Novidades</p>
-<section class="flex flex-nowrap">
+<p class="text-4xl text-yellow-200 text-center my-12 font-black text-gray-900 dark:text-white">Novidades</p>
+<section class="flex flex-nowrap mb-12">
     <a class="my-auto w-16 hover:bg-gray-700 rounded-full"><img src="https://img.icons8.com/ios-filled/50/FFFFFF/less-than.png"/></a>      
     <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow m-4">
         <a href="#">

@@ -74,6 +74,12 @@
                             </a>
                         </div>
                     </li>
+                    <li>
+                        <a href="{{ url('admin/configuracao') }}" class="flex items-center justify-between w-full py-2 pl-3 pr-4 font-medium text-gray-700 border-b border-gray-100" aria-current="page">
+                        <img src="https://img.icons8.com/material-outlined/24/null/gear--v1.png"/>
+                        <span class="flex-1 ml-3 whitespace-nowrap">Configuração</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>

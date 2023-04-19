@@ -9,6 +9,7 @@
 @include('public.util.carousel')
 <main class="container mx-auto">
     @include('public.products.productListing')
+    @include('public.products.categories')
     @include('public.products.productsNews')
 </main>
 @include('public.util.footer')
