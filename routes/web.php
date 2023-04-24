@@ -49,4 +49,8 @@ Route::prefix('/documentos')->group(function(){
     Route::get('/ficha-de-acompanhamento-clinico/{hash}',[\App\Http\Controllers\FichaDeAcompanhamentoClinico::class, 'ficha']);
 });
 
+Route::prefix('/produto')->group(function(){
+    Route::get('/',[\App\Http\Controllers\ProdutoDetalheController::class, 'produto']);
+});
+
 Route::fallback(function() {echo "Not found - 404";});
