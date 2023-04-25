@@ -14,6 +14,18 @@
                         </a>
                     </li>
                     <li>
+                        <a href="{{ url('admin/pedido') }}" class="flex items-center justify-between w-full py-2 pl-3 pr-4 font-medium text-gray-700 border-b border-gray-100" aria-current="page">
+                        <img src="https://img.icons8.com/material-sharp/24/null/online-order.png">
+                        <span class="flex-1 ml-3 whitespace-nowrap">Pedido</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ url('admin/financeiro') }}" class="flex items-center justify-between w-full py-2 pl-3 pr-4 font-medium text-gray-700 border-b border-gray-100" aria-current="page">
+                        <img src="https://img.icons8.com/material-sharp/24/null/check-dollar.png"/>
+                        <span class="flex-1 ml-3 whitespace-nowrap">Financeiro</span>
+                        </a>
+                    </li>
+                    <li>
                         <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" class="flex items-center justify-between w-full py-2 pl-3 pr-4 font-medium text-gray-700 border-b border-gray-100">
                             <img src="https://img.icons8.com/material-sharp/24/null/add-user-male.png"/>
                             <span class="flex-1 ml-3 whitespace-nowrap">Cadastro</span>

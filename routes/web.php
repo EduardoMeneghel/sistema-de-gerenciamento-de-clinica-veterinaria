@@ -14,7 +14,8 @@ Route::prefix('/admin')->group( function (){
     //Dashboard
     Route::get('/dashboard',[\App\Http\Controllers\AdminController::class, 'dashboard'])->name('dashboard');
     Route::get('/configuracao',[\App\Http\Controllers\ConfiguracaoController::class, 'configuracao'])->name('configuracao');
-
+    Route::get('/pedido',[\App\Http\Controllers\PedidoController::class, 'pedido'])->name('pedido');
+    Route::get('/financeiro',[\App\Http\Controllers\FinanceiroController::class, 'financeiro'])->name('financeiro');
     //Cadastro
     Route::prefix('/cadastro')->group( function (){
         Route::get('',[\App\Http\Controllers\AdminController::class, 'dashboard'])->name('cadastro-geral');
