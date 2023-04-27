@@ -8,7 +8,7 @@ class MinhaContaController extends Controller
 {
     public function minhaConta()
     {
-        return view('public/minhaConta');
+        return view('public/myAccount/minhaConta');
     }
 
 }
