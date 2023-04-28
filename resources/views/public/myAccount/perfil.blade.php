@@ -1,6 +1,6 @@
 <section class="container mx-auto w-full bg-white" id="perfil">
     <div class="relative overflow-x-auto ">
-    <h1 class="text-4xl font-black text-center mt-16">Clientes</h1>
+    <h1 class="text-4xl font-black text-center mt-16">Perfil</h1>
         <form class="px-16 py-16">
             <div class="grid md:grid-cols-2 md:gap-6">
                 <div class="relative z-0 w-full mb-6 group">
