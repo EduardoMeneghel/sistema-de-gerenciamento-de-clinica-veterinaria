@@ -2,9 +2,38 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/',[\App\Http\Controllers\HomeController::class, 'index'])->name('index');
-Route::get('/minha-conta',[\App\Http\Controllers\MinhaContaController::class, 'minhaConta'])->name('minhaConta');
-//TCC
+Route::prefix('/')->group( function (){
+
+    Route::get('/',[\App\Http\Controllers\HomeController::class, 'index'])->name('index');
+    
+    Route::get('/minha-conta',[\App\Http\Controllers\MinhaContaController::class, 'minhaConta'])->name('minhaConta');
+    
+    Route::prefix('/login')->group( function (){
+        Route::get('',[\App\Http\Controllers\LoginContoller::class, 'login']);
+    })->name('login');
+
+    Route::prefix('/registro')->group( function (){
+        Route::get('',[\App\Http\Controllers\LoginContoller::class, 'registro']);
+    })->name('registro');
+
+    Route::prefix('/recuperar-senha')->group( function (){
+        Route::get('',[\App\Http\Controllers\LoginContoller::class, 'recuperarSenha']);
+    })->name('recuperar-senha');
+
+    Route::prefix('/documentos')->group(function(){
+        Route::get('/ficha-de-acompanhamento-clinico/{hash}',[\App\Http\Controllers\FichaDeAcompanhamentoClinico::class, 'ficha']);
+    });
+
+    Route::prefix('/produto')->group(function(){
+        Route::get('/',[\App\Http\Controllers\ProdutoDetalheController::class, 'produto']);
+        Route::get('/finalizar',[\App\Http\Controllers\ProdutoDetalheController::class, 'finalizar']);
+    });
+
+    Route::prefix('/carrinho')->group(function(){
+        Route::get('/',[\App\Http\Controllers\CarrinhoController::class, 'carrinho']);
+        Route::get('/adicionar',[\App\Http\Controllers\CarrinhoController::class, 'adicionarAoCarrinho']);
+    });
+});
 
 Route::prefix('/admin')->group( function (){
 
@@ -32,26 +61,6 @@ Route::prefix('/admin')->group( function (){
         Route::get('/tipo-de-atendimento',[\App\Http\Controllers\CadastroController::class, 'tipoDeAtendimento'])->name('cadastro-tipo-de-atendimento');
         Route::get('/documentos',[\App\Http\Controllers\CadastroController::class, 'documento'])->name('cadastro-documentos');
     });
-});
-
-Route::prefix('/login')->group( function (){
-    Route::get('',[\App\Http\Controllers\LoginContoller::class, 'login']);
-})->name('login');
-
-Route::prefix('/registro')->group( function (){
-    Route::get('',[\App\Http\Controllers\LoginContoller::class, 'registro']);
-})->name('registro');
-
-Route::prefix('/recuperar-senha')->group( function (){
-    Route::get('',[\App\Http\Controllers\LoginContoller::class, 'recuperarSenha']);
-})->name('recuperar-senha');
-
-Route::prefix('/documentos')->group(function(){
-    Route::get('/ficha-de-acompanhamento-clinico/{hash}',[\App\Http\Controllers\FichaDeAcompanhamentoClinico::class, 'ficha']);
-});
-
-Route::prefix('/produto')->group(function(){
-    Route::get('/',[\App\Http\Controllers\ProdutoDetalheController::class, 'produto']);
 });
 
 Route::fallback(function() {echo "Not found - 404";});

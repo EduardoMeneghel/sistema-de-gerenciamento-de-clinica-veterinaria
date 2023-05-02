@@ -7,7 +7,7 @@
     <body>
         @include('public.util.header')
         <main class="container mx-auto">
-            @include('public.products.productDetails')
+            
         </main>
         @include('public.util.footer')
         @vite('node_modules/flowbite/dist/flowbite.min.js')

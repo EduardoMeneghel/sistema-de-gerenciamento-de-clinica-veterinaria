@@ -10,4 +10,9 @@ class ProdutoDetalheController extends Controller
     {
         return view('public/produto');
     }
+
+    public function finalizar()
+    {
+        return view('public/finalizar');
+    }
 }

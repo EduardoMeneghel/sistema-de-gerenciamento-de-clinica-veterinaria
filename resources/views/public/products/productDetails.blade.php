@@ -34,7 +34,8 @@
                     </div>
                 </div>
                 <span class="text-xl flex text-white d-block font-bold mt-12">R$ 100,00</span>
-                <a href="#" class="text-white text-xl justify-center flex mt-6 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg px-5 py-5 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Reservar</a>
+                <a href="carrinho/adicionar" class="text-white text-xl justify-center flex mt-6 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg px-5 py-5 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Adicionar ao Carrinho</a>
+                <a href="produto/finalizar" class="text-white text-xl justify-center flex mt-6 bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg px-5 py-5 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Comprar agora</a>
             </div>
         </section>
     </li>
