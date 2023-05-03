@@ -1,12 +1,12 @@
-const ctx2 = document.getElementById('myChart2');
+const ctx3 = document.getElementById('myChart3');
 
-            new Chart(ctx2, {
-                type: 'line',
+            new Chart(ctx3, {
+                type: 'bar',
                 data: {
-                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                labels: ['JAN', 'FEV', 'MAR', 'ABR', 'MAI', 'JUN'],
                 datasets: [{
-                    label: 'Visitas',
-                    data: [12, 19, 3, 5, 2, 3],
+                    label: 'CIRURGIAS',
+                    data: [0, 12, 52, 10, 89, 159],
                     borderWidth: 1
                 }]
                 },
