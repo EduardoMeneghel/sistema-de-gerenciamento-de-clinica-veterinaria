@@ -27,6 +27,7 @@ Route::prefix('/')->group( function (){
     Route::prefix('/produto')->group(function(){
         Route::get('/',[\App\Http\Controllers\ProdutoDetalheController::class, 'produto']);
         Route::get('/finalizar',[\App\Http\Controllers\ProdutoDetalheController::class, 'finalizar']);
+        Route::get('/reservar',[\App\Http\Controllers\ReservaController::class, 'reserva']);
     });
 
     Route::prefix('/carrinho')->group(function(){
