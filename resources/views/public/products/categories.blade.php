@@ -26,7 +26,7 @@
         </div>
         <div class="mx-4 text-center">
             <img class="max-w-none object-cover w-24 h-24" src="https://img.icons8.com/sf-black-filled/256/FFFFFF/bird.png" alt="imagem de passaro">
-            <p class="text-white font-black mt-2">PASSARO</p>
+            <p class="text-white font-black mt-2">PÁSSARO</p>
         </div>
         <div class="mx-4 text-center">
             <img class="max-w-none object-cover w-24 h-24" src="https://img.icons8.com/sf-black-filled/256/FFFFFF/fish.png" alt="imagem de peixe">
