@@ -1,5 +1,5 @@
 import React from 'react';
-import Configuration from './Configuration';
+import Configuration from '../../../components/admin/configuration/Configuration';
 
 const Client = () => {
   return (
