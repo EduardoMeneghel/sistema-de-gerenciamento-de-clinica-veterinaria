@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/images/logo.png';
-import { Register } from '../../utils/userController';
+import { PostRegister } from '../../utils/userController';
 
-const RegisterForm = () => {
+const Register = () => {
   const [fullname, setFullname] = useState('');
   const [dateOfBirth, setDateOfBirth] = useState('');
   const [gender, setGender] = useState('');
@@ -13,7 +13,18 @@ const RegisterForm = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
 
   const handleRegister = () => {
-    Register(fullname, dateOfBirth, gender, email, telephone, password, confirmPassword);
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phoneRegex = /^[0-9]{10,11}$/;
+
+    if (! fullname || ! dateOfBirth || ! gender || ! email || ! telephone || ! password || ! confirmPassword) {
+      alert("Por favor preencha todos os campos!");
+    } else if (!emailRegex.test(email)) {
+      alert('O email fornecido é inválido.');
+    }else if (!phoneRegex.test(telephone)) {
+      alert('O número de telefone fornecido é inválido.');
+    } else {
+      PostRegister(fullname, dateOfBirth, gender, email, telephone, password, confirmPassword)
+    }
   };
 
   return (
@@ -91,4 +102,4 @@ const RegisterForm = () => {
   );
 };
 
-export default RegisterForm;
+export default Register;

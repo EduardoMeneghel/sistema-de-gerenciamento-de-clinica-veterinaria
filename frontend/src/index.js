@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 //Register
 import Login from './pages/public/Login';
-import RegisterForm from './pages/public/Register';
+import Register from './pages/public/Register';
 import RecoverPassword from './pages/public/RecoverPassword';
 
 //Admin
@@ -26,10 +26,10 @@ import ClientRegister from './pages/admin/register/client/Client'
 import VaccineRegister from './pages/admin/register/vaccine/Vaccine'
 import VeterinarianRegister from './pages/admin/register/veterinarian/Veterinarian'
 import ClinicalFollowUpFormRegister from './pages/admin/register/document/ClinicalFollowUpForm'
-import AnimalRegister from './pages/admin/register/animal/Animal'
-import SpeciesRegister from './pages/admin/register/animal/Species'
-import FellRegister from './pages/admin/register/animal/Fell'
-import RaceRegister from './pages/admin/register/animal/Race'
+import AnimalRegister from './pages/admin/animal/Animal'
+import SpeciesRegister from './pages/admin/animal/Species'
+import FellRegister from './pages/admin/animal/Fell'
+import RaceRegister from './pages/admin/animal/Race'
 
 
 //Not Found
@@ -41,7 +41,7 @@ ReactDOM.render(
 
       {/*Register*/}
       <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<RegisterForm />} />
+      <Route path="/register" element={<Register />} />
       <Route path="/recover-password" element={<RecoverPassword />} />
 
       {/*Admin*/}
@@ -61,13 +61,14 @@ ReactDOM.render(
         {/*Register Admin*/}
         <Route path="/admin/register/exam" element={<ExamRegister />} />
         <Route path="/admin/register/client" element={<ClientRegister />} />
-        <Route path="/admin/register/animal" element={<AnimalRegister />} />
         <Route path="/admin/register/vaccine" element={<VaccineRegister />} />
         <Route path="/admin/register/document/clinical-follow-up-form" element={<ClinicalFollowUpFormRegister />} />
         <Route path="/admin/register/veterinarian" element={<VeterinarianRegister />} />
-          <Route path="/admin/register/animal/species" element={<SpeciesRegister />} />
-          <Route path="/admin/register/animal/fell" element={<FellRegister />} />
-          <Route path="/admin/register/animal/race" element={<RaceRegister />} />
+
+        <Route path="/admin/animal" element={<AnimalRegister />} />
+          <Route path="/admin/animal/species" element={<SpeciesRegister />} />
+          <Route path="/admin/animal/fell" element={<FellRegister />} />
+          <Route path="/admin/animal/race" element={<RaceRegister />} />
 
         <Route path="*" element={<NotFound />} />
     </Routes>

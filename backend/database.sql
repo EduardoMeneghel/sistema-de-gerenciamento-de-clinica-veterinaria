@@ -7,3 +7,21 @@ CREATE TABLE user (
   date_birthday DATE,
   password VARCHAR(55) NOT NULL
 );
+
+CREATE TABLE fell (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  fell VARCHAR(50) UNIQUE NOT NULL
+);
+
+CREATE TABLE species (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  species VARCHAR(50) UNIQUE NOT NULL
+);
+
+CREATE TABLE race (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  race VARCHAR(50) UNIQUE NOT NULL,
+  species_id INT,
+  FOREIGN KEY (species_id) REFERENCES species(id)
+);
+
