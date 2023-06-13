@@ -1,7 +1,23 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Configuration from '../../../components/admin/configuration/Configuration';
+import { FetchConfiguration } from '../../../utils/userController';
 
 const Contact = () => {
+    const [configurationContactData, setConfigurationContactData] = useState([]);
+
+    const fetchConfigurationContactData = async () => {
+      try {
+        const response = await FetchConfiguration(1);
+        setConfigurationContactData(response);
+      } catch (error) {
+        console.log('Error fetching configuration data:', error);
+      }
+    };
+  
+    useEffect(() => {
+      fetchConfigurationContactData();
+    }, []);
+  
     return (
         <>
             <Configuration />
@@ -22,21 +38,27 @@ const Contact = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr className="bg-white dark:bg-gray-800">
-                                <th
-                                    scope="row"
-                                    className="px-6 py-4 w-1/5 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                                >
+                            {configurationContactData.map((configurationContact) => (
+                                <tr className="bg-white dark:bg-gray-800" key={configurationContact.id}>
+                                    <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                     <label className="relative inline-flex items-center cursor-pointer">
-                                        <input type="checkbox" value="" className="sr-only peer" />
+                                        <input
+                                        type="checkbox"
+                                        value=""
+                                        className="sr-only peer"
+                                        defaultChecked={configurationContact.status === 1}
+                                        />
                                         <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600" />
                                     </label>
-                                </th>
-                                <td className="px-6 py-4 w-2/5">Botão do Whatsapp</td>
-                                <td className="px-6 py-4 w-2/5">
-                                    <input placeholder="Número do Whatsapp" className="pl-2 w-full border border-current" />
-                                </td>
-                            </tr>
+                                    </th>
+                                    <td className="px-6 py-4 w-2/5">
+                                    {configurationContact.name}
+                                    </td>
+                                    <td className="px-6 py-4 w-2/5">
+                                    <input className="pl-2 w-full border border-current" defaultValue={configurationContact.value} />
+                                    </td>
+                                </tr>
+                            ))}
                         </tbody>
                     </table>
                 </div>

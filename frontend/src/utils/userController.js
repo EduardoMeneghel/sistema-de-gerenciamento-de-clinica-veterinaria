@@ -68,3 +68,13 @@ export const PostRegister = (fullname, dateOfBirth, gender, email, telephone, pa
     });
 
   };
+
+
+  export const FetchConfiguration = async (id) => {
+    try {
+      const response = await fetch('http://localhost:3002/configuration/' + id);
+      return await response.json();
+    } catch (error) {
+      console.log('Error fetching configuration data:', error);
+    }
+  };

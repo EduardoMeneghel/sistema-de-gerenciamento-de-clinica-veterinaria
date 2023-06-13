@@ -3,14 +3,13 @@ import { Link } from 'react-router-dom';
 import { DeleteRace } from '../../../utils/animalController';
 
 const RaceTable = () => {
-  const [raceData, setraceData] = useState([]);
+  const [raceData, setRaceData] = useState([]);
 
-  const fetchraceData = async () => {
+  const fetchRaceData = async () => {
     try {
       const response = await fetch('http://localhost:3002/animal/race');
       const data = await response.json();
-      console.log(data);
-      setraceData(data);
+      setRaceData(data);
     } catch (error) {
       console.log('Error fetching race data:', error);
     }
@@ -21,7 +20,7 @@ const RaceTable = () => {
   };
 
   useEffect(() => {
-    fetchraceData();
+    fetchRaceData();
   }, []);
 
   return (

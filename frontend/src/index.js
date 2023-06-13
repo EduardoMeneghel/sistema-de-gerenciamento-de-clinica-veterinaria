@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 //Register
@@ -21,11 +22,11 @@ import PaymentConfiguration from './pages/admin/configuration/Payment';
 import OrdersConfiguration from './pages/admin/configuration/Order';
 
 //Register Admin
-import ExamRegister from './pages/admin/register/exam/Exam'
-import ClientRegister from './pages/admin/register/client/Client'
-import VaccineRegister from './pages/admin/register/vaccine/Vaccine'
-import VeterinarianRegister from './pages/admin/register/veterinarian/Veterinarian'
-import ClinicalFollowUpFormRegister from './pages/admin/register/document/ClinicalFollowUpForm'
+//import ExamRegister from './pages/admin/'
+//import ClientRegister from './pages/admin/client/Client'
+//import VaccineRegister from './pages/admin/vaccine/Vaccine'
+//import VeterinarianRegister from './pages/admin/veterinarian/Veterinarian'
+//import ClinicalFollowUpFormRegister from './pages/admin/document/ClinicalFollowUpForm'
 import AnimalRegister from './pages/admin/animal/Animal'
 import SpeciesRegister from './pages/admin/animal/Species'
 import FellRegister from './pages/admin/animal/Fell'
@@ -35,7 +36,7 @@ import RaceRegister from './pages/admin/animal/Race'
 //Not Found
 import NotFound from './pages/NotFound';
 
-ReactDOM.render(
+createRoot(document.getElementById('root')).render(
   <Router>
     <Routes>
 
@@ -59,11 +60,11 @@ ReactDOM.render(
         <Route path="/admin/configuration/order" element={<OrdersConfiguration />} />
 
         {/*Register Admin*/}
-        <Route path="/admin/register/exam" element={<ExamRegister />} />
+        {/*<Route path="/admin/register/exam" element={<ExamRegister />} />
         <Route path="/admin/register/client" element={<ClientRegister />} />
         <Route path="/admin/register/vaccine" element={<VaccineRegister />} />
-        <Route path="/admin/register/document/clinical-follow-up-form" element={<ClinicalFollowUpFormRegister />} />
-        <Route path="/admin/register/veterinarian" element={<VeterinarianRegister />} />
+<Route path="/admin/register/document/clinical-follow-up-form" element={<ClinicalFollowUpFormRegister />} />
+        <Route path="/admin/register/veterinarian" element={<VeterinarianRegister />} />*/}
 
         <Route path="/admin/animal" element={<AnimalRegister />} />
           <Route path="/admin/animal/species" element={<SpeciesRegister />} />
@@ -72,6 +73,5 @@ ReactDOM.render(
 
         <Route path="*" element={<NotFound />} />
     </Routes>
-  </Router>,
-  document.getElementById('root')
+  </Router>
 );
