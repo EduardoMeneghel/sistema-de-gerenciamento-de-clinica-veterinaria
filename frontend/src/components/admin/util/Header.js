@@ -93,9 +93,9 @@ const Header = () => {
                                                 </div>
                                             )}
                                             <li>
-                                                <Link to="../admin/cadastro/cliente" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">
+                                                <Link to="../admin/owner" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">
                                                     <img src="https://img.icons8.com/material-rounded/24/null/user.png" alt="Cliente" className="inline-block" />
-                                                    <span className="flex-1 ml-3 whitespace-nowrap">Cliente</span>
+                                                    <span className="flex-1 ml-3 whitespace-nowrap">Dono</span>
                                                 </Link>
                                             </li>
                                             <li>

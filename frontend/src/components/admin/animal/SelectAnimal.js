@@ -1,25 +1,25 @@
 import React, { useState, useEffect } from 'react';
 
-const SelectSpecies = ({ onSpeciesChange }) => {
-  const [speciesData, setSpeciesData] = useState([]);
+const SelectAnimal = ({ onAnimalChange }) => {
+  const [animalData, setAnimalData] = useState([]);
 
-  const fetchSpeciesData = async () => {
+  const fetchAnimalData = async () => {
     try {
-      const response = await fetch('http://localhost:3002/animal/species');
+      const response = await fetch('http://localhost:3002/animal');
       const data = await response.json();
-      setSpeciesData(data);
+      setAnimalData(data);
     } catch (error) {
-      console.log('Error fetching species data:', error);
+      console.log('Error fetching animal data:', error);
     }
   };
 
   useEffect(() => {
-    fetchSpeciesData();
+    fetchAnimalData();
   }, []);
 
-  const handleSpeciesChange = (e) => {
-    const selectedSpeciesId = e.target.value;
-    onSpeciesChange(selectedSpeciesId);
+  const handleAnimalChange = (e) => {
+    const selectedAnimalId = e.target.value;
+    onAnimalChange(selectedAnimalId);
   };
 
   return (
@@ -28,15 +28,15 @@ const SelectSpecies = ({ onSpeciesChange }) => {
         <select
           type="text"
           className="block py-2.5 px-0 w-full text-sm text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-          onChange={handleSpeciesChange}
+          onChange={handleAnimalChange}
           required
         >
           <option className="text-black" selected>
             Selecione a espécie
           </option>
-          {speciesData.map((species) => (
-            <option className="text-black" value={species.id} key={species.id}>
-              {species.species}
+          {animalData.map((animal) => (
+            <option className="text-black" value={animal.id} key={animal.id}>
+              {animal.name}
             </option>
           ))}
         </select>
@@ -45,4 +45,4 @@ const SelectSpecies = ({ onSpeciesChange }) => {
   );
 };
 
-export default SelectSpecies;
+export default SelectAnimal;

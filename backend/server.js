@@ -9,6 +9,27 @@ app.use(cors());
 
 const connection = database.createConnection();
 
+app.get('/animal', (request, response) => {
+
+  connection.query(`SELECT * FROM animal;`, (err, rows, fields) => {
+    if (err) {
+      console.error('Ocorreu um erro ao executar a consulta:', err);
+      return response.status(500).json({ 'message': 'Ocorreu um erro no servidor' });
+    }
+    return response.status(200).json(rows);
+  });
+});
+
+app.get('/user', (request, response) => {
+
+  connection.query(`SELECT * FROM user;`, (err, rows, fields) => {
+    if (err) {
+      console.error('Ocorreu um erro ao executar a consulta:', err);
+      return response.status(500).json({ 'message': 'Ocorreu um erro no servidor' });
+    }
+    return response.status(200).json(rows);
+  });
+});
 
 app.post('/animal/fell', (request, response) => {
   const { fell } = request.body;
@@ -137,6 +158,103 @@ app.delete('/animal/race/:id', (request, response) => {
     return response.status(200).json({ message: 'Pelo excluído com sucesso' });
   });
 });
+
+app.post('/owner', (request, response) => {
+  const { user, animal } = request.body;
+  if ( ! user || ! animal) {
+    return response.status(400).json({ 'message': 'Dados inválidos' });
+  }
+
+  connection.query(`INSERT INTO owner (user_id, animal_id) VALUES('${user}', '${animal}');`, (err, rows, fields) => {
+    if (err) {
+      console.error('Ocorreu um erro ao executar a consulta:', err);
+      return response.status(500).json({ 'message': 'Ocorreu um erro no servidor' });
+    }
+    return response.status(200).json({ 'message': 'Pelo Cadastrado com sucesso' });
+  });
+});
+
+
+app.get('/owner/user/:id', (request, response) => {
+  const { id } = request.params;
+
+  connection.query(`SELECT * FROM owner WHERE id_user = ${id}`, (err, rows, fields) => {
+    if (err) {
+      console.error('Ocorreu um erro ao executar a consulta:', err);
+      return response.status(500).json({ 'message': 'Ocorreu um erro no servidor' });
+    }
+    
+    let animal = [];
+
+    function queryAnimals(index) {
+      if (index === rows.length) {
+        return response.status(200).json(animal);
+      }
+
+      const row = rows[index];
+
+      connection.query(`SELECT * FROM animal WHERE id = ${row.id_animal}`, (err, animalRows, fields) => {
+        if (err) {
+          console.error('Ocorreu um erro ao executar a consulta:', err);
+          return response.status(500).json({ 'message': 'Ocorreu um erro no servidor' });
+        }
+
+        const animalData = {
+          animal: animalRows[0],
+          fell: [],
+          race: [],
+          species: []
+        };
+
+        queryFell(animalData, index);
+      });
+    }
+
+    function queryFell(animalData, index) {
+      connection.query(`SELECT * FROM fell WHERE id = ${animalData.animal.id_fell}`, (err, fellRows, fields) => {
+        if (err) {
+          console.error('Ocorreu um erro ao executar a consulta:', err);
+          return response.status(500).json({ 'message': 'Ocorreu um erro no servidor' });
+        }
+
+        animalData.fell = fellRows;
+
+        queryRace(animalData, index);
+      });
+    }
+
+    function queryRace(animalData, index) {
+      connection.query(`SELECT * FROM race WHERE id = ${animalData.animal.id_race}`, (err, raceRows, fields) => {
+        if (err) {
+          console.error('Ocorreu um erro ao executar a consulta:', err);
+          return response.status(500).json({ 'message': 'Ocorreu um erro no servidor' });
+        }
+
+        animalData.race = raceRows;
+
+        querySpecies(animalData, index);
+      });
+    }
+
+    function querySpecies(animalData, index) {
+      connection.query(`SELECT * FROM species WHERE id = ${animalData.animal.id_species}`, (err, speciesRows, fields) => {
+        if (err) {
+          console.error('Ocorreu um erro ao executar a consulta:', err);
+          return response.status(500).json({ 'message': 'Ocorreu um erro no servidor' });
+        }
+
+        animalData.species = speciesRows;
+
+        animal.push(animalData);
+
+        queryAnimals(index + 1);
+      });
+    }
+
+    queryAnimals(0);
+  });
+});
+
 
 app.get('/configuration/:id', (request, response) => {
   const { id } = request.params;

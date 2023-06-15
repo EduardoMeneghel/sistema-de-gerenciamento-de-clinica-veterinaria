@@ -78,3 +78,35 @@ export const PostRegister = (fullname, dateOfBirth, gender, email, telephone, pa
       console.log('Error fetching configuration data:', error);
     }
   };
+
+  export const PostOwner = async (user, animal) => {
+    if (! user || ! animal) {
+      alert("Por favor preencha todos os campos!");
+      return;
+    }
+  
+    fetch('http://localhost:3002/owner', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+        'user': user,
+        'animal': animal    
+        })
+    })
+    .then(response => {
+        if (response.ok) {
+        alert('Registro concluído com sucesso');
+        } else {
+        return response.json().then(json => {
+            if (json.message) {
+                return json.message;
+            }
+        });
+        }
+    })
+    .catch(error => {
+        console.error(error);
+    });
+  };

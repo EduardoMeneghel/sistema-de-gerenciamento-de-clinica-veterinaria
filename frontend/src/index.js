@@ -8,6 +8,9 @@ import Login from './pages/public/Login';
 import Register from './pages/public/Register';
 import RecoverPassword from './pages/public/RecoverPassword';
 
+//Public
+import MyAccount from './pages/public/MyAccount';
+
 //Admin
 import Dashboard from './pages/admin/Dashboard';
 import AdminLogin from './pages/admin/Login'
@@ -22,16 +25,11 @@ import PaymentConfiguration from './pages/admin/configuration/Payment';
 import OrdersConfiguration from './pages/admin/configuration/Order';
 
 //Register Admin
-//import ExamRegister from './pages/admin/'
-//import ClientRegister from './pages/admin/client/Client'
-//import VaccineRegister from './pages/admin/vaccine/Vaccine'
-//import VeterinarianRegister from './pages/admin/veterinarian/Veterinarian'
-//import ClinicalFollowUpFormRegister from './pages/admin/document/ClinicalFollowUpForm'
 import AnimalRegister from './pages/admin/animal/Animal'
 import SpeciesRegister from './pages/admin/animal/Species'
 import FellRegister from './pages/admin/animal/Fell'
 import RaceRegister from './pages/admin/animal/Race'
-
+import Owner from './pages/admin/owner/Owner'
 
 //Not Found
 import NotFound from './pages/NotFound';
@@ -44,6 +42,9 @@ createRoot(document.getElementById('root')).render(
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/recover-password" element={<RecoverPassword />} />
+
+      {/*Public*/}
+      <Route path="/my-account" element={<MyAccount />} />
 
       {/*Admin*/}
       <Route path="/admin" element={<Dashboard />} />
@@ -58,14 +59,9 @@ createRoot(document.getElementById('root')).render(
         <Route path="/admin/configuration/contact" element={<ContactConfiguration />} />
         <Route path="/admin/configuration/payment" element={<PaymentConfiguration />} />
         <Route path="/admin/configuration/order" element={<OrdersConfiguration />} />
+        <Route path="/admin/owner" element={<Owner />} />
 
         {/*Register Admin*/}
-        {/*<Route path="/admin/register/exam" element={<ExamRegister />} />
-        <Route path="/admin/register/client" element={<ClientRegister />} />
-        <Route path="/admin/register/vaccine" element={<VaccineRegister />} />
-<Route path="/admin/register/document/clinical-follow-up-form" element={<ClinicalFollowUpFormRegister />} />
-        <Route path="/admin/register/veterinarian" element={<VeterinarianRegister />} />*/}
-
         <Route path="/admin/animal" element={<AnimalRegister />} />
           <Route path="/admin/animal/species" element={<SpeciesRegister />} />
           <Route path="/admin/animal/fell" element={<FellRegister />} />
