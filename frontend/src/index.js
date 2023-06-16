@@ -10,6 +10,7 @@ import RecoverPassword from './pages/public/RecoverPassword';
 
 //Public
 import MyAccount from './pages/public/MyAccount';
+import MyAccountMyAnimals from './pages/public/MyAccountMyAnimals';
 
 //Admin
 import Dashboard from './pages/admin/Dashboard';
@@ -45,6 +46,7 @@ createRoot(document.getElementById('root')).render(
 
       {/*Public*/}
       <Route path="/my-account" element={<MyAccount />} />
+      <Route path="/my-account/animals" element={<MyAccountMyAnimals />} />
 
       {/*Admin*/}
       <Route path="/admin" element={<Dashboard />} />

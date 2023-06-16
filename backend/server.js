@@ -178,7 +178,7 @@ app.post('/owner', (request, response) => {
 app.get('/owner/user/:id', (request, response) => {
   const { id } = request.params;
 
-  connection.query(`SELECT * FROM owner WHERE id_user = ${id}`, (err, rows, fields) => {
+  connection.query(`SELECT * FROM owner WHERE user_id = ${id}`, (err, rows, fields) => {
     if (err) {
       console.error('Ocorreu um erro ao executar a consulta:', err);
       return response.status(500).json({ 'message': 'Ocorreu um erro no servidor' });
@@ -193,7 +193,7 @@ app.get('/owner/user/:id', (request, response) => {
 
       const row = rows[index];
 
-      connection.query(`SELECT * FROM animal WHERE id = ${row.id_animal}`, (err, animalRows, fields) => {
+      connection.query(`SELECT * FROM animal WHERE id = ${row.animal_id}`, (err, animalRows, fields) => {
         if (err) {
           console.error('Ocorreu um erro ao executar a consulta:', err);
           return response.status(500).json({ 'message': 'Ocorreu um erro no servidor' });
@@ -327,7 +327,6 @@ app.post('/register', (request, response) => {
   }
 });
 
-const PORT = 3002;
-app.listen(PORT, () => {
+app.listen(3002, () => {
   console.log(`server started`);
 });

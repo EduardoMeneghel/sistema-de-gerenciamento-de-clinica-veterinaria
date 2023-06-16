@@ -1,25 +1,25 @@
 import React, { useState, useEffect } from 'react';
 
-const SelectRace = ({ onRaceChange }) => {
-  const [raceData, setRaceData] = useState([]);
+const SelectFell = ({ onFellChange }) => {
+  const [fellData, setFellData] = useState([]);
 
-  const fetchRaceData = async () => {
+  const fetchFellData = async () => {
     try {
-      const response = await fetch('http://localhost:3002/animal/race');
+      const response = await fetch('http://localhost:3002/animal/fell');
       const data = await response.json();
-      setRaceData(data);
+      setFellData(data);
     } catch (error) {
-      console.log('Error fetching race data:', error);
+      console.log('Error fetching fell data:', error);
     }
   };
 
   useEffect(() => {
-    fetchRaceData();
+    fetchFellData();
   }, []);
 
-  const handleRaceChange = (e) => {
-    const selectedRaceId = e.target.value;
-    onRaceChange(selectedRaceId);
+  const handleFellChange = (e) => {
+    const selectedFellId = e.target.value;
+    onFellChange(selectedFellId);
   };
 
   return (
@@ -28,15 +28,15 @@ const SelectRace = ({ onRaceChange }) => {
         <select
           type="text"
           className="block py-2.5 px-0 w-full text-sm text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-          onChange={handleRaceChange}
+          onChange={handleFellChange}
           required
         >
           <option className="text-black" selected>
-            Selecione a raça
+            Selecione o pelo
           </option>
-          {raceData.map((race) => (
-            <option className="text-black" value={race.id} key={race.id}>
-              {race.race}
+          {fellData.map((fell) => (
+            <option className="text-black" value={fell.id} key={fell.id}>
+              {fell.fell}
             </option>
           ))}
         </select>
@@ -45,4 +45,4 @@ const SelectRace = ({ onRaceChange }) => {
   );
 };
 
-export default SelectRace;
+export default SelectFell;
