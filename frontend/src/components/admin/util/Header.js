@@ -34,13 +34,13 @@ const Header = () => {
                             <li>
                                 <Link to="../admin/order" className="flex items-center justify-between w-full py-2 pl-3 pr-4 font-medium text-gray-700 border-b border-gray-100" aria-current="page">
                                     <img src="https://img.icons8.com/material-sharp/24/null/online-order.png" alt="Order" />
-                                    <span className="flex-1 ml-3 whitespace-nowrap">Order</span>
+                                    <span className="flex-1 ml-3 whitespace-nowrap">Pedido</span>
                                 </Link>
                             </li>
                             <li>
                                 <Link to="../admin/financial" className="flex items-center justify-between w-full py-2 pl-3 pr-4 font-medium text-gray-700 border-b border-gray-100" aria-current="page">
                                     <img src="https://img.icons8.com/material-sharp/24/null/check-dollar.png" alt="Financial" />
-                                    <span className="flex-1 ml-3 whitespace-nowrap">Financial</span>
+                                    <span className="flex-1 ml-3 whitespace-nowrap">Financeiro</span>
                                 </Link>
                             </li>
                             <li>
