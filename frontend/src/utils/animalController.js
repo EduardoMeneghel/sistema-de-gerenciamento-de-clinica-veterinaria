@@ -159,3 +159,40 @@ export const DeleteRace = (id) => {
         }
     })
 }
+
+export const PostAnimal = (name, speciesId, raceId, fellId, genderId, date) => {
+    if (!name || !speciesId || !raceId || !fellId || !genderId || !date) {
+      alert("Por favor preencha todos os campos!");
+      return;
+    }
+  
+    fetch('http://localhost:3002/animal', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+        'name': name,
+        'speciesId': speciesId,
+        'raceId': raceId,
+        'fellId': fellId,
+        'genderId': genderId,
+        'date': date
+        })
+    })
+    .then(response => {
+        if (response.ok) {
+        alert('Registro concluído com sucesso');
+        } else {
+        return response.json().then(json => {
+            if (json.message) {
+                alert(json.message);
+            }
+        });
+        }
+    })
+    .catch(error => {
+        console.error(error);
+    });
+
+  };

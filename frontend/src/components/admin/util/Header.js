@@ -128,7 +128,7 @@ const Header = () => {
                             <li>
                                 <Link to="../admin/configuration/contact" className="flex items-center justify-between w-full py-2 pl-3 pr-4 font-medium text-gray-700 border-b border-gray-100" aria-current="page">
                                     <img src="https://img.icons8.com/material-outlined/24/null/gear--v1.png"/>
-                                    <span class="flex-1 ml-3 whitespace-nowrap">Configuração</span>
+                                    <span className="flex-1 ml-3 whitespace-nowrap">Configuração</span>
                                 </Link>
                             </li>
                         </ul>

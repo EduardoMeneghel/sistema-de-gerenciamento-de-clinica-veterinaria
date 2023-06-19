@@ -32,7 +32,7 @@ const SelectUser = ({ onUserChange }) => {
           required
         >
           <option className="text-black" selected>
-            Selecione a espécie
+            Selecione a Usuário
           </option>
           {userData.map((user) => (
             <option className="text-black" value={user.id} key={user.id}>

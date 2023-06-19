@@ -54,7 +54,7 @@ export const PostRegister = (fullname, dateOfBirth, gender, email, telephone, pa
     })
     .then(response => {
         if (response.ok) {
-        alert('Registro concluído com sucesso');
+            window.location.href = "/my-account";
         } else {
         return response.json().then(json => {
             if (json.message) {

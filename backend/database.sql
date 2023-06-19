@@ -38,6 +38,17 @@ CREATE TABLE animal (
   FOREIGN KEY (fell_id) REFERENCES fell(id)
 );
 
+CREATE TABLE configuration (
+  id INT(11) NOT NULL AUTO_INCREMENT,
+  `key` VARCHAR(50) NOT NULL,
+  status INT(2) NOT NULL,
+  name VARCHAR(50) NOT NULL,
+  value VARCHAR(50) NOT NULL,
+  category INT(2) NOT NULL,
+  PRIMARY KEY (id),
+  UNIQUE KEY `key` (`key`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
 CREATE TABLE owner (
   id INT AUTO_INCREMENT PRIMARY KEY,
   animal_id INT(10) NOT NULL,
@@ -45,15 +56,4 @@ CREATE TABLE owner (
   FOREIGN KEY (animal_id) REFERENCES animal(id),
   FOREIGN KEY (user_id) REFERENCES user(id)
 );
-
-CREATE TABLE configuration (
-  id int(11) NOT NULL AUTO_INCREMENT,
-  key varchar(50) NOT NULL,
-  status int(2) NOT NULL,
-  name varchar(50) NOT NULL,
-  value varchar(50) NOT NULL,
-  category int(2) NOT NULL,
-  PRIMARY KEY (id),
-  UNIQUE KEY key (key)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 

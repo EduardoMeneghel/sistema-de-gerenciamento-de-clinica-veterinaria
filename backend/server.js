@@ -20,6 +20,7 @@ app.get('/animal', (request, response) => {
   });
 });
 
+
 app.get('/user', (request, response) => {
 
   connection.query(`SELECT * FROM user;`, (err, rows, fields) => {
@@ -29,6 +30,23 @@ app.get('/user', (request, response) => {
     }
     return response.status(200).json(rows);
   });
+});
+
+app.post('/animal', (request, response) => {
+
+  const { name, speciesId, raceId, fellId, genderId, date } = request.body;
+  if (!name || !speciesId || !raceId || !fellId || !genderId || !date) {
+    return response.status(400).json({ 'message': 'Dados inválidos' });
+  }
+
+  connection.query(`INSERT INTO animal (name, species_id, race_id, fell_id, gender, date_of_birth ) VALUES('${name}', '${speciesId}', '${raceId}', '${fellId}', '${genderId}', '${date}');`, (err, rows, fields) => {
+    if (err) {
+      console.error('Ocorreu um erro ao executar a consulta:', err);
+      return response.status(500).json({ 'message': 'Ocorreu um erro no servidor' });
+    }
+    return response.status(200).json({ 'message': 'Pelo Cadastrado com sucesso' });
+  });
+
 });
 
 app.post('/animal/fell', (request, response) => {
@@ -211,7 +229,7 @@ app.get('/owner/user/:id', (request, response) => {
     }
 
     function queryFell(animalData, index) {
-      connection.query(`SELECT * FROM fell WHERE id = ${animalData.animal.id_fell}`, (err, fellRows, fields) => {
+      connection.query(`SELECT * FROM fell WHERE id = ${animalData.animal.fell_id}`, (err, fellRows, fields) => {
         if (err) {
           console.error('Ocorreu um erro ao executar a consulta:', err);
           return response.status(500).json({ 'message': 'Ocorreu um erro no servidor' });
@@ -224,7 +242,7 @@ app.get('/owner/user/:id', (request, response) => {
     }
 
     function queryRace(animalData, index) {
-      connection.query(`SELECT * FROM race WHERE id = ${animalData.animal.id_race}`, (err, raceRows, fields) => {
+      connection.query(`SELECT * FROM race WHERE id = ${animalData.animal.race_id}`, (err, raceRows, fields) => {
         if (err) {
           console.error('Ocorreu um erro ao executar a consulta:', err);
           return response.status(500).json({ 'message': 'Ocorreu um erro no servidor' });
@@ -237,7 +255,7 @@ app.get('/owner/user/:id', (request, response) => {
     }
 
     function querySpecies(animalData, index) {
-      connection.query(`SELECT * FROM species WHERE id = ${animalData.animal.id_species}`, (err, speciesRows, fields) => {
+      connection.query(`SELECT * FROM species WHERE id = ${animalData.animal.species_id}`, (err, speciesRows, fields) => {
         if (err) {
           console.error('Ocorreu um erro ao executar a consulta:', err);
           return response.status(500).json({ 'message': 'Ocorreu um erro no servidor' });
@@ -313,7 +331,7 @@ app.post('/register', (request, response) => {
     }
 
     const hash = generateHash(password);
-    connection.query(`INSERT INTO user (name, email, telephone, gender, date_birthday, password) VALUES('${name}', '${email}', '${telephone}', '${gender}', '${dateBirth}', '${hash}');`, (err, rows, fields) => {
+    connection.query(`INSERT INTO user (name, email, telephone, gender, date_of_birth, password) VALUES('${name}', '${email}', '${telephone}', '${gender}', '${dateBirth}', '${hash}');`, (err, rows, fields) => {
       if (err) {
         console.error('Ocorreu um erro ao executar a consulta:', err);
         return response.status(500).json({'message' : 'Ocorreu um erro no registro'});

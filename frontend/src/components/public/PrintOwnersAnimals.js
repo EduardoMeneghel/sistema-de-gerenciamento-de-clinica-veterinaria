@@ -6,7 +6,7 @@ const PrintOwnersAnimals = () => {
  
   const fetchAnimalsData = async () => {
     try {
-        const response = await fetch('http://localhost:3002/owner/user/9');
+        const response = await fetch('http://localhost:3002/owner/user/1');
         const data = await response.json();
         setAnimalsData(data);
       } catch (error) {
