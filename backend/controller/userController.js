@@ -1,5 +1,6 @@
 
 const database = require('../database');
+const bcrypt = require('../bcrypt');
 const connection = database.createConnection();
 
 function login(request, response) {
@@ -15,7 +16,9 @@ function login(request, response) {
     if (!rows.length) {
       return response.status(400).json({ 'message': 'Conta ou senha inválida' });
     }
-    const isAValidPassword = compareDataToHash(password, rows[0].password);
+
+    const isAValidPassword =  bcrypt.compareDataToHash(password, rows[0].password);
+
     if (isAValidPassword) {
       return response.status(200).json({ 'message': 'Login concluído com sucesso' });
     } else {
@@ -44,7 +47,7 @@ function register(request, response) {
       return response.status(400).json({ 'message': 'A senha e a confirmação de senha não correspondem' });
     }
 
-    const hash = generateHash(password);
+    const hash = bcrypt.generateHash(password);
     connection.query(`INSERT INTO user (name, email, telephone, gender, date_of_birth, password) VALUES('${name}', '${email}', '${telephone}', '${gender}', '${dateBirth}', '${hash}');`, (err, rows, fields) => {
       if (err) {
         console.error('Ocorreu um erro ao executar a consulta:', err);
@@ -53,6 +56,7 @@ function register(request, response) {
         return response.status(200).json({ 'message': 'Registro concluído com sucesso' });
       }
     });
+
   } catch (error) {
     console.error(error);
     return response.status(500).json({ 'message': 'Ocorreu um erro no registro' });

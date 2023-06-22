@@ -1,4 +1,4 @@
-const bcrypt = require('bcryptjs');
+const bcrypt = require('bcrypt');
 
 function generateHash(data) {
     return bcrypt.hashSync(data, 10);

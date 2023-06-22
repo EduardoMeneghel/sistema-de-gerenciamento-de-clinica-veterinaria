@@ -2,10 +2,10 @@ CREATE TABLE user (
   id INT AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(50) NOT NULL,
   email VARCHAR(100) NOT NULL UNIQUE,
-  telephone INT(11),
+  telephone BIGINT(15),
   gender INT(2),
   date_of_birth DATE,
-  password VARCHAR(55) NOT NULL
+  password VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE fell (

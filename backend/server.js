@@ -1,7 +1,5 @@
 const express = require('express');
 const cors = require('cors');
-const { generateHash, compareDataToHash } = require('./bcrypt.js');
-
 const app = express();
 app.use(express.json());
 app.use(cors());
@@ -14,6 +12,8 @@ const speciesController = require('./controller/speciesController');
 const fellController = require('./controller/fellController');
 const animalController = require('./controller/animalController');
 
+
+//animal
 app.get('/animal', animalController.findAllAnimal);
 
 app.post('/animal', animalController.insertAnimal);
@@ -37,7 +37,7 @@ app.post('/animal/race', raceController.insertRace);
 
 app.get('/animal/race', raceController.findAllRace);
 
-app.delete('/animal/race/:id', raceController.deleteAnimalById);
+app.delete('/animal/race/:id', raceController.deleteRaceById);
 
 //owner
 app.post('/owner', ownerController.insertOwner);
