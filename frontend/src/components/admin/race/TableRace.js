@@ -26,8 +26,8 @@ const RaceTable = () => {
   return (
     <>
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg mt-16">
-        <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-          <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <table className="w-full text-sm text-left text-gray-500">
+          <thead className="text-xs text-gray-700 uppercase bg-gray-50">
             <tr>
               <th scope="col" className="px-6 py-3">
                 Id
@@ -48,22 +48,22 @@ const RaceTable = () => {
           </thead>
           <tbody>
             {raceData.map((race) => (
-              <tr className="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600" key={race.id}>
-                <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+              <tr className="bg-white hover:bg-gray-50" key={race.id}>
+                <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                   {race.id}
                 </th>
-                <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                   {race.race}
                 </th>
-                <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                   {race.species_id}
                 </th>
-                <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                   <Link className="text-white text-center text-sm rounded-lg block bg-gradient-to-r from-cyan-500 to-blue-500 w-full py-2">
                     Editar
                   </Link>
                 </th>
-                <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                   <Link
                     className="text-white text-center text-sm rounded-lg block bg-gradient-to-r from-orange-500 to-red-500 w-full py-2"
                     onClick={() => DeleteRaceById(race.id)}
