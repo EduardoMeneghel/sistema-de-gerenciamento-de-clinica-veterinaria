@@ -17,11 +17,11 @@ const Header = () => {
 
     return (
         <header>
-            <nav className="px-2 bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
+            <nav className="px-2 bg-white border-gray-200">
                 <div className="container flex flex-wrap items-center justify-between mx-auto">
                     <Link to="/" className="flex items-center">
                         <img src={logo} className="h-6 mr-3 sm:h-10" alt="Logo" />
-                        <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">HVUNIBAVE</span>
+                        <span className="self-center text-xl font-semibold whitespace-nowrap">HVUNIBAVE</span>
                     </Link>
                     <div className="hidden w-full md:block md:w-auto">
                         <ul className="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm">
@@ -49,14 +49,14 @@ const Header = () => {
                                     <span className="flex-1 ml-3 whitespace-nowrap">Cadastro</span>
                                 </button>
                                 {showDropdown && (
-                                    <div className="absolute z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-                                        <ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="doubleDropdownButton">
+                                    <div className="absolute z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
+                                        <ul className="py-2 text-sm text-gray-700" aria-labelledby="doubleDropdownButton">
                                             <button
                                                 onClick={toggleSecondDropdown}
                                                 data-dropdown-toggle="doubleDropdown"
                                                 data-dropdown-placement="right-start"
                                                 type="button"
-                                                className="flex items-center justify-between w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                                                className="flex items-center justify-between w-full px-4 py-2 hover:bg-gray-100"
                                             >
                                                 <img src="https://img.icons8.com/material-sharp/24/null/parakeet.png" alt="Animal" className="inline-block" />
                                                 <span>Animal</span>
@@ -65,27 +65,27 @@ const Header = () => {
                                                 </svg>
                                             </button>
                                             {showSecondDropdown && (
-                                                <div className="absolute z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700" style={{ left: 180 + 'px', top: 0 + 'px' }}>
+                                                <div className="absolute z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 " style={{ left: 180 + 'px', top: 0 + 'px' }}>
                                                     <li>
-                                                        <Link to="../admin/animal" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">
+                                                        <Link to="../admin/animal" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                                                             <img src="https://img.icons8.com/material-sharp/24/null/parakeet.png" alt="Animal" className="inline-block" />
                                                             <span className="flex-1 ml-3 whitespace-nowrap">Animal</span>
                                                         </Link>
                                                     </li>
                                                     <li>
-                                                        <Link to="../admin/animal/species" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">
+                                                        <Link to="../admin/animal/species" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                                                             <img src="https://img.icons8.com/material-sharp/24/null/platypus.png" alt="Espécie" className="inline-block" />
                                                             <span className="flex-1 ml-3 whitespace-nowrap">Espécie</span>
                                                         </Link>
                                                     </li>
                                                     <li>
-                                                        <Link to="../admin/animal/race" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">
+                                                        <Link to="../admin/animal/race" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                                                             <img src="https://img.icons8.com/material-sharp/24/null/parrot.png" alt="Raça" className="inline-block" />
                                                             <span className="flex-1 ml-3 whitespace-nowrap">Raça</span>
                                                         </Link>
                                                     </li>
                                                     <li>
-                                                        <Link to="../admin/animal/fell" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">
+                                                        <Link to="../admin/animal/fell" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                                                             <img src="https://img.icons8.com/material-sharp/24/null/quill-pen.png" alt="Pelo" className="inline-block" />
                                                             <span className="flex-1 ml-3 whitespace-nowrap">Pelo</span>
                                                         </Link>
@@ -93,29 +93,29 @@ const Header = () => {
                                                 </div>
                                             )}
                                             <li>
-                                                <Link to="../admin/owner" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">
+                                                <Link to="../admin/owner" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                                                     <img src="https://img.icons8.com/material-rounded/24/null/user.png" alt="Cliente" className="inline-block" />
                                                     <span className="flex-1 ml-3 whitespace-nowrap">Dono</span>
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link to="../admin/cadastro/veterinario" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">
+                                                <Link to="../admin/cadastro/veterinario" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                                                     <img src="https://img.icons8.com/material-sharp/24/null/veterinarian.png" alt="Veterinário(a)" className="inline-block" />
                                                     <span className="flex-1 ml-3 whitespace-nowrap">Veterinário(a)</span>
                                                 </Link>
                                             </li>
-                                            <Link to="../admin/cadastro/exame" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">
+                                            <Link to="../admin/cadastro/exame" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                                                 <img src="https://img.icons8.com/material-sharp/24/null/test-passed.png" alt="Exame" className="inline-block" />
                                                 <span className="flex-1 ml-3 whitespace-nowrap">Exame</span>
                                             </Link>
                                             <li>
-                                                <Link to="../admin/cadastro/vacina" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">
+                                                <Link to="../admin/cadastro/vacina" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                                                     <img src="https://img.icons8.com/material-sharp/24/null/syringe.png" alt="Vacina" className="inline-block" />
                                                     <span className="flex-1 ml-3 whitespace-nowrap">Vacina</span>
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link to="../admin/cadastro/documentos" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">
+                                                <Link to="../admin/cadastro/documentos" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                                                     <img src="https://img.icons8.com/material-sharp/24/null/document--v1.png" alt="Documentos" className="inline-block" />
                                                     <span className="flex-1 ml-3 whitespace-nowrap">Documentos</span>
                                                 </Link>
